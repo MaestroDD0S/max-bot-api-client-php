@@ -48,42 +48,39 @@ use RuntimeException;
  */
 class Api
 {
-    public const string LIBRARY_VERSION = '1.5.0';
+    public const LIBRARY_VERSION = '1.5.0';
 
-    public const string API_VERSION = '1.2.5';
+    public const API_VERSION = '1.2.5';
 
-    private const string API_BASE_URL = 'https://platform-api.max.ru';
+    protected const API_BASE_URL = 'https://platform-api.max.ru';
 
-    private const string METHOD_GET = 'GET';
-    private const string METHOD_POST = 'POST';
-    private const string METHOD_DELETE = 'DELETE';
-    private const string METHOD_PATCH = 'PATCH';
-    private const string METHOD_PUT = 'PUT';
+    protected const METHOD_GET = 'GET';
+    protected const METHOD_POST = 'POST';
+    protected const METHOD_DELETE = 'DELETE';
+    protected const METHOD_PATCH = 'PATCH';
+    protected const METHOD_PUT = 'PUT';
 
-    private const string ACTION_ME = '/me';
-    private const string ACTION_SUBSCRIPTIONS = '/subscriptions';
-    private const string ACTION_MESSAGES = '/messages';
-    private const string ACTION_UPLOADS = '/uploads';
-    private const string ACTION_CHATS = '/chats';
-    private const string ACTION_CHATS_ACTIONS = '/chats/%d/actions';
-    private const string ACTION_CHATS_PIN = '/chats/%d/pin';
-    private const string ACTION_CHATS_MEMBERS_ME = '/chats/%d/members/me';
-    private const string ACTION_CHATS_MEMBERS_ADMINS = '/chats/%d/members/admins';
-    private const string ACTION_CHATS_MEMBERS_ADMINS_ID = '/chats/%d/members/admins/%d';
-    private const string ACTION_CHATS_MEMBERS = '/chats/%d/members';
-    private const string ACTION_UPDATES = '/updates';
-    private const string ACTION_ANSWERS = '/answers';
-    private const string ACTION_VIDEO_DETAILS = '/videos/%s';
+    protected const ACTION_ME = '/me';
+    protected const ACTION_SUBSCRIPTIONS = '/subscriptions';
+    protected const ACTION_MESSAGES = '/messages';
+    protected const ACTION_UPLOADS = '/uploads';
+    protected const ACTION_CHATS = '/chats';
+    protected const ACTION_CHATS_ACTIONS = '/chats/%d/actions';
+    protected const ACTION_CHATS_PIN = '/chats/%d/pin';
+    protected const ACTION_CHATS_MEMBERS_ME = '/chats/%d/members/me';
+    protected const ACTION_CHATS_MEMBERS_ADMINS = '/chats/%d/members/admins';
+    protected const ACTION_CHATS_MEMBERS_ADMINS_ID = '/chats/%d/members/admins/%d';
+    protected const ACTION_CHATS_MEMBERS = '/chats/%d/members';
+    protected const ACTION_UPDATES = '/updates';
+    protected const ACTION_ANSWERS = '/answers';
+    protected const ACTION_VIDEO_DETAILS = '/videos/%s';
 
-    private const int RESUMABLE_UPLOAD_THRESHOLD_BYTES = 10 * 1024 * 1024; // 10 MB
+    protected const RESUMABLE_UPLOAD_THRESHOLD_BYTES = 10 * 1024 * 1024; // 10 MB
 
-    private readonly ClientApiInterface $client;
-
-    private readonly ModelFactory $modelFactory;
-
-    private readonly LoggerInterface $logger;
-
-    private readonly UpdateDispatcher $updateDispatcher;
+    protected readonly ClientApiInterface $client;
+    protected readonly ModelFactory       $modelFactory;
+    protected readonly LoggerInterface    $logger;
+    protected readonly UpdateDispatcher   $updateDispatcher;
 
     /**
      * Api constructor.
