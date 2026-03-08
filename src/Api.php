@@ -1191,7 +1191,7 @@ class Api
             'notify' => $notify,
             'link' => $link,
             'attachments' => $attachments !== null ? array_map(
-                fn(AbstractModel $attachment) => $attachment->toArray(),
+                fn($attachment) => is_array($attachment) ? $attachment : $attachment->toArray(),
                 $attachments,
             ) : null,
         ];
