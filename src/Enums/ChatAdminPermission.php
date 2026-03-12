@@ -16,4 +16,8 @@ enum ChatAdminPermission: string
     case PinMessage = 'pin_message';
     case Write = 'write';
     case EditLink = 'edit_link';
+    case ViewStats = 'view_stats';
+    case Edit = 'edit';
+    case Delete = 'delete';
+    case CanCall = 'can_call';
 }
